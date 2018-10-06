@@ -1,0 +1,63 @@
+/*
+add more specific styles like h1.site-header
+maybe switch to Grid to layout table, maybe still use table elements b/c semanticaly appropriate, just use Grid to style
+wrap task name to new line on small screens
+*/
+
+html {
+	/*box-sizing: border-box;*/
+}
+
+body {
+	/*box-sizing: border-box;*/
+	box-sizing: content-box;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 20px;
+}
+
+header, footer {
+	margin: 0 auto;
+	padding: 10px 20px 20px 20px;
+	background-color: #0d3349;
+	color: whitesmoke;
+	text-align: center;
+}
+
+header h1 {
+	margin: .25em;
+}
+
+main {
+	margin: 40px 0;
+	padding: 0;
+}
+
+	.time-blocks {
+		width: 100%;
+	}
+
+		.time-block-rows {
+		}
+
+			.time-window {
+				width: auto;
+				min-width: 175px;
+			}
+
+				.time-block-rows td {
+					padding: 5px 10px;
+				}
+
+				.time-block-rows input {
+					width: 40px;
+				}
+
+			.time-name-container {
+				width: 100%;
+			}
+
+				.time-block-rows input.task-name {
+					width: 100%;
+					min-width: 120px;
+				}
