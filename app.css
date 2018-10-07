@@ -2,6 +2,14 @@
 add more specific styles like h1.site-header
 maybe switch to Grid to layout table, maybe still use table elements b/c semanticaly appropriate, just use Grid to style
 wrap task name to new line on small screens
+css grid for layout
+
+Be able to click done on time blocks? Feels nice but also can infer based on date.now
+
+Maybe automatically apply css to make past events greyed out
+Also css to make current time block highlight Ed
+
+style so don't feel hard borders between hour and minute, maybe no border at all, but diff bg color
 */
 
 html {

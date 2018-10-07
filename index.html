@@ -10,22 +10,17 @@
 <body>
 	<header>
 		<h1>Time Blocker</h1>
-
-		<button>Save Template</button>
-		<button>Load Template</button>
 	</header>
 
 	<!--
-	use proper html boilerplate
+
+	use proper html boilerplate - underscore or html5 boilerplate, probably lattter since more js app focused and exposure to something new
 	should be able to edit everything with keyboard
-	autocomplete task name based on existing ones
-	style so don't feel hard borders between hour and minute, maybe no border at all, but diff bg color
-	is "meridian" in "end_meridian" the correct term? spelled correctly?
+
+
 	add labels to form inputs. how to do proper a11y when don't want extra label for minute and am/pm? screen-reader-text?
 	support "00" in minutes
 
-	details: https://www.rememberthemilk.com/app/#list/41384096/631875665
-	https://www.reddit.com/r/productivity/comments/9lqmh2/looking_for_timeblocking_app_that_notifies_at/
 	-->
 
 	<main>
@@ -46,7 +41,7 @@
 						:
 						<input type="number" name="start_minute" maxlength="2" min="0" max="12" value="00" />
 
-						<select name="start_meridian">
+						<select name="start_period">
 							<option value="am">am</option>
 							<option value="pm" selected>pm</option>
 						</select>
@@ -57,7 +52,7 @@
 						:
 						<input type="number" name="end_minute" maxlength="2" min="0" max="12" value="30" />
 
-						<select name="end_meridian">
+						<select name="start_period">
 							<option value="am">am</option>
 							<option value="pm" selected>pm</option>
 						</select>
@@ -100,6 +95,16 @@
 
 		<button>Add new time block</button>
 	</main>
+
+	<aside>
+		Time blocker app setup as calendar view so can plan tomorrow without losing
+		aside is probably wrong, should be section or something? maybe even `nav` in this context?
+
+		<button>Save Template</button>	(saves the current day as a template)
+		<button>Load Template</button>	(prob change this to be a button next to each existing template)
+
+		list templates - monday, tuesday/thursday, wednesday, saturday, sunday
+	</aside>
 
 	<footer>footer</footer>
 </body>
