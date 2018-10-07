@@ -1,10 +1,18 @@
-<html>
-<head>
-	<title>Time Blocker</title>
-	<!--<script src="backbone.min.js"></script>-->
-	<script src="app.js"></script>
+<!doctype html>
+<html class="no-js" lang="">
 
-	<link rel="stylesheet" type="text/css" href="app.css" />
+<head>
+	<meta charset="utf-8">
+	<title>Time Blocker</title>
+	<meta name="description" content="A lean JavaScript application to help you schedule your day.">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="manifest" href="manifest.json">
+	<link rel="apple-touch-icon" href="images/feather/list.png">
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/boilerplate.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -13,6 +21,9 @@
 	</header>
 
 	<!--
+
+	document somewhere that intentionally using png for favicon even though ios doesn't support it, becuase ios is stupid for not supporting it
+	shouldn't have to have duplicate icons in different formats for favicon/apple icon/manifest icon
 
 	use proper html boilerplate - underscore or html5 boilerplate, probably lattter since more js app focused and exposure to something new
 	should be able to edit everything with keyboard
@@ -107,4 +118,16 @@
 	</aside>
 
 	<footer>footer</footer>
+
+	<script src="js/vendor/modernizr-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write( '<script src="js/vendor/jquery-3.3.1.min.js"><\/script>' );</script>
+	<script src="js/main.js"></script>
+
+	<!--
+	remove jquery files and tags if not using it
+	need modernizer? probably safest to just include it, but maybe unnecessary these days
+	-->
 </body>
+
+</html>

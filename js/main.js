@@ -10,6 +10,10 @@
 	// https://developer.mozilla.org/en-US/docs/Web/Manifest
 	// https://developers.google.com/web/fundamentals/web-app-manifest/
 
+// detect if required features available, and abort if they're not
+	// or maybe use polyfill. have to explicitly add it or does modernizer do that automatically?
+	// https://philipwalton.com/articles/loading-polyfills-only-when-needed/
+
 /*
 autocomplete task name based on existing ones
 probably gonna wait an npm module for the calendar, and maybe moment.js too
@@ -27,6 +31,8 @@ use localstorage probably, but research options first
 		init : function() {
 			// const template = _.template( 'time-block-row', timeBlocks );
 			// document.getElementsByClassName(  )
+
+			// use try/catch for anything async
 		},
 
 		saveTemplate : function() {
@@ -57,7 +63,6 @@ use localstorage probably, but research options first
 	try {
 		app.init();
 	} catch( exception ) {
-		console.log( exception );
-		// if console, etc. check quick nav interface to see what it does
+		app.log( exception );
 	}
 }() );

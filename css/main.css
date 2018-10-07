@@ -69,3 +69,18 @@ main {
 					width: 100%;
 					min-width: 120px;
 				}
+
+
+/*
+ * Tablet
+ */
+@media only screen and ( min-width: 35em ) {
+	/* todo */
+}
+
+/*
+ * Desktop
+ */
+@media only screen and ( min-width: 45em ) {
+	/* todo */
+}

@@ -11,6 +11,9 @@ push notifications through browser
 
 ability to select multiple tasks, and shift them all backword/forward by an arbitrary time amount
 
+test manifest.json
+test print stylesheet, but don't spend much time fixing problems 'cause it's not worth it
+	this might be relevant: http://css-discuss.incutio.com/wiki/Printing_Tables
 
 Todo blog about when v1 done
 also post note on https://www.reddit.com/r/productivity/comments/9lqmh2/looking_for_timeblocking_app_that_notifies_at/

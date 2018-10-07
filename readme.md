@@ -1,8 +1,10 @@
 # Time Blocker
 
-a web app to help you time block
+A lean JavaScript application to help you schedule your day.
 describ how this is different from other apps (short version)
-	web-bsed
+	web-bsed so can run on any device
+	available on desktop so can quickly input w/ keyboard and mouse instead of clumsy touch interface on mobile device
+update short desc to idnex meta tag
 
 
 ## What's Time Blocking?
@@ -24,6 +26,11 @@ keyboard accessible for speed
 
 templates so can quickly setup days based on routine, but each day is independent so can adapt to unique parts of day
 
+plan days based on actual calendar dates rather than abstract days of week - need to explain this better
+	have archival record of what you did in past days
+	future days are independent from templates, so can edit monday on a sunday without modifying template
+
+automatically show past blocks as complete and highlight current block 
 
 
 also fun way to play around w/ modern stuff like web componentes, local storage, progressive web app, offline support, manifest
@@ -47,7 +54,8 @@ git clone
 npm install 
 
 
-## misc
+## Credits
 
 props to timetune for being a pretty good alternative and providing inspiration
 also props to dependencies: html5 bp, momentjs, etc
+https://feathericons.com/
