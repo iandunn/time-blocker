@@ -49,6 +49,9 @@
 			</thead>
 
 			<tbody class="time-block-rows">
+				<tr>
+					<td colspan="3">Loading...</td>
+				</tr>
 
 				<tr>
 					<td class="time-window">
@@ -78,35 +81,127 @@
 					</td>
 				</tr>
 
+				<!--
+				<time-block-row>
+					<span slot="?">x</span>
+				</time-block-row>
+				-->
+			</tbody>
+
+			<template id="time-block-row">
 				<tr>
 					<td class="time-window">
-						<input type="number" name="start_hour" maxlength="2" min="0" max="12" />
+						<input type="number" name="start_hour" maxlength="2" min="0" max="12" value="7" />
 						:
-						<input type="number" name="start_minute" maxlength="2" min="0" max="12" />
+						<input type="number" name="start_minute" maxlength="2" min="0" max="12" value="00" />
 
-						<select name="start_meridian">
+						<select name="start_period">
 							<option value="am">am</option>
-							<option value="pm">pm</option>
+							<option value="pm" selected>pm</option>
 						</select>
 					</td>
 
 					<td class="time-window">
-						<input type="number" name="end_hour" maxlength="2" min="0" max="12" />
+						<input type="number" name="end_hour" maxlength="2" min="0" max="12" value="8" />
 						:
-						<input type="number" name="end_minute" maxlength="2" min="0" max="12" />
+						<input type="number" name="end_minute" maxlength="2" min="0" max="12" value="30" />
 
-						<select name="end_meridian">
+						<select name="start_period">
 							<option value="am">am</option>
-							<option value="pm">pm</option>
+							<option value="pm" selected>pm</option>
 						</select>
 					</td>
 
 					<td class="task-name-container">
-						<input type="text" name="task_name" class="task-name" />
+						<input type="text" name="task_name" class="task-name" value="Foo bar meeting" />
 					</td>
 				</tr>
-			</tbody>
+			</template>
 		</table>
+
+
+
+		<template id="my-paragraph">
+			<style>
+				p {
+					color: white;
+					background-color: #666;
+					padding: 5px;
+				}
+			</style>
+
+			<p>before stuff</p>
+			<p>
+				<slot name="my-text">My default text</slot>
+			</p>
+			<p>after stuff!</p>
+		</template>
+
+		<!--
+		<my-paragraph>
+			<div slot="my-text">i don't get it</div>
+		</my-paragraph>
+
+		<my-paragraph>
+			<span slot="my-text">Let's have some different text!</span>
+		</my-paragraph>
+
+		<my-paragraph>
+			<ul slot="my-text">
+				<li>Let's have some different text!</li>
+				<li>In a list!</li>
+			</ul>
+		</my-paragraph>
+-->
+
+
+
+
+		<template id="my-simple-paragraph">
+			<p>
+				Hi, my name is <slot name="foo">bar</slot>
+			</p>
+		</template>
+
+		<!--
+		<my-simple-paragraph>
+			<span slot="foo">slim shady</span>
+		</my-simple-paragraph>
+-->
+
+
+
+
+
+
+		<template id="tmplt">
+			<h2></h2>
+			<p></p>
+			<hr>
+		</template>
+
+		<script>
+			var arr = [
+				{ name: 'Susan', country: 'USA', age: 27 },
+				{ name: 'John', country: 'Canada', age: 34 },
+				{ name: 'Klaus', country: 'Germany', age: 23 },
+				{ name: 'Peter', country: 'Greece', age: 29 }
+			];
+
+			var template = document.querySelector( '#tmplt' );
+
+			//for ( var i = 0; i < arr.length; i ++ ) {
+			//	var user = arr[ i ];
+			//	var clone = template.content.cloneNode( true );
+			//	var h2 = clone.querySelectorAll( 'h2' );
+			//	h2[ 0 ].className = 'username';
+			//	h2[ 0 ].innerHTML = user.name;
+			//	var p = clone.querySelectorAll( 'p' );
+			//	p[ 0 ].innerHTML = 'Country: ' + user.country + '<br>Age: ' + user.age;
+			//	template.parentNode.appendChild( clone );
+			//}
+		</script>
+
 
 
 		<div class="day-controls">

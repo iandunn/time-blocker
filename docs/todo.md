@@ -36,8 +36,9 @@ stats on time
 
 Electron wrapper so can have dedicate window on desktop rather than getting mixed in with all the regular browser tabs
 	push notifications through growl
-	
+
 look for design template that you can use to make everything more attractive
+	or even just borrow from https://codepen.io/learnwebcode/pen/eyZMyp
 
 offline support
 	not really useful for me, but will be a good opportunity to learn how to do it
