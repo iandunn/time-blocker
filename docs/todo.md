@@ -9,7 +9,7 @@ Store db version in localstorsge, when back compatible broken refuse to overwrit
 push notifications through browser
 	just hardcode as a notif at the start of event for now
 
-ability to select multiple tasks, and shift them all backword/forward by an arbitrary time amount
+Always show pie chart on current day to keep mindful about where spending time
 
 test manifest.json
 test print stylesheet, but don't spend much time fixing problems 'cause it's not worth it
@@ -17,15 +17,21 @@ test print stylesheet, but don't spend much time fixing problems 'cause it's not
 
 super simple backup. whatever's easiest, probably just download a .json file with the data
 
+keyboard shortcuts for everything
+	hit ? to show modal listing them 
 
 Todo blog about when v1 done
 also post note on https://www.reddit.com/r/productivity/comments/9lqmh2/looking_for_timeblocking_app_that_notifies_at/
 pin to github profile
 share with corey and vedanshu as an idea for how to do modern js that doesn't suck
 
+when you setup your templates, add everything you might possilby want to do that day, including meetings that are bi-weekly, etc
+	it's easier to just delete a row than to have to add one
 
 
 ## High Priority
+
+ability to select multiple tasks, and shift them all backword/forward by an arbitrary time amount
 
 colors and icons for tasks like timetune has. find some open source icon library to use. prefably npm module if already using that for other dependencies like moment.js
 	maybe not big enough impact to justify high priority, but it would just make things feel a lot nicer, so it does have a big UX impact
@@ -36,6 +42,11 @@ stats on time
 
 Electron wrapper so can have dedicate window on desktop rather than getting mixed in with all the regular browser tabs
 	push notifications through growl
+
+
+show warning when blocks overlap
+	but only if overlap by more than 1 minute, so one task can end at 9:00am and the other can start at 9:00am, isntead of having to start at 9:01am
+	highlight row w/ css, but allow to overlap for flexibility and simplicity 
 
 look for design template that you can use to make everything more attractive
 	or even just borrow from https://codepen.io/learnwebcode/pen/eyZMyp
@@ -55,9 +66,10 @@ but that might be annoying if they're both going off
 or maybe use simperium API? don't think it's really supported anymore, but maybe
 
 
-
-
 ## Medium Priority
+
+maybe add a '5 minutes left, wrap it up...' notification before next event starts
+	if event is less than 20 minutes, though, maybe make it a % of the task time, so you'd get the notif 1-3 minutes before 
 
 tag/categorize tasks?
 	this would let me view stats based on tag, so i can view just my work blocks or just my personal blocks, for example
@@ -77,3 +89,5 @@ customize notifications for x minutes before event like timetune
 ## Low Priority
 
 make think of a better name, but keep it descriptive instead of "clever"
+
+import backup

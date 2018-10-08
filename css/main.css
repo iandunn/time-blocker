@@ -12,6 +12,10 @@ Also css to make current time block highlight Ed
 style so don't feel hard borders between hour and minute, maybe no border at all, but diff bg color
 */
 
+
+/*
+ * Global styles
+ */
 * {
 	box-sizing: border-box;
 }
@@ -20,6 +24,10 @@ img {
 	max-width: 100%;
 }
 
+
+/*
+ * Mobile & shared styles
+ */
 body {
 	display: grid;
 	grid-gap: 10px 20px;
@@ -38,10 +46,13 @@ body {
 	min-height: 100vh; /* Assists with pinning the footer to the bottom of the document */
 }
 
+/*
+ * Site Header
+ */
 .site-header, .site-footer {
 	width: 100%;	/* this shouldn't be necessary, should it? */
 	margin: 0 auto;
-	padding: 10px 20px 20px 20px;
+	padding: 20px 20px 20px 20px;
 	background-color: #0d3349;
 	color: whitesmoke;
 	text-align: center;
@@ -55,6 +66,9 @@ body {
 		margin: .25em;
 	}
 
+/*
+ * JavaScript Disabled
+ */
 .javascript-required {
 	grid-area: javascript-required;
 	color: darkred;
@@ -78,15 +92,22 @@ html.no-js .site-controls {
 }
 
 
+/*
+ * Time Block Management
+ */
 .site-content,
-.site-controls {
+.site-controls,
+.day-stats {
 	padding: 0 20px;
 }
 
 .site-content {
 	grid-area: site-content;
-
 }
+
+	.time-block-management h2:first-child {
+		margin-top: 0;
+	}
 
 	.time-blocks {
 		width: 100%;
@@ -119,6 +140,40 @@ html.no-js .site-controls {
 		margin-top: 20px;
 	}
 
+
+/*
+ * Day Stats
+ */
+.day-stats {
+	margin-top: 3em;
+	padding: 0;
+}
+
+	.motivational-quote {
+		display: inline-block;
+		font-style: italic;
+		margin: 1em 20px;
+		text-align: center;
+	}
+
+	.motivational-quote p {
+		display: inline;
+	}
+
+	.motivational-quote p::before {
+		content: '\201C';
+	}
+
+	.motivational-quote p::after {
+		content: '\201D';
+	}
+		.motivational-quote a {
+			text-decoration: none;
+		}
+
+/*
+ * Site Controls
+ */
 .site-controls {
 	grid-area: site-controls;
 }
@@ -128,18 +183,28 @@ html.no-js .site-controls {
 	}
 
 	.existing-templates {
-		padding-left: 0;
-		list-style-type: none;
+		margin-top: 2em;
 	}
 
-
-/* See `.site-header` for some shared styles. */
-.site-footer {
-	grid-area: site-footer;
-}
+		.existing-templates ul {
+			margin-top: 2em;
+			padding-left: 0;
+			list-style-type: none;
+		}
 
 /*
- * Tablet
+ * Site Footer
+ *
+ * See `.site-header` for some shared styles.
+ */
+.site-footer {
+	grid-area: site-footer;
+	margin-top: 3em;
+}
+
+
+/*
+ * Tablets
  */
 @media only screen and ( min-width: 35em ) {
 	html {
@@ -161,8 +226,9 @@ html.no-js .site-controls {
 	}
 }
 
+
 /*
- * Desktop
+ * Desktops
  */
 @media only screen and ( min-width: 45em ) {
 	body {

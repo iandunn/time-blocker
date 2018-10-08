@@ -24,6 +24,7 @@
 autocomplete task name based on existing ones
 probably gonna wait an npm module for the calendar, and maybe moment.js too
 use localstorage probably, but research options first
+	Local storage limit? Need to delete tasks when getting close? Warn to backup first
 
  */
 

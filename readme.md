@@ -1,7 +1,8 @@
 # Time Blocker
 
 A lean JavaScript application to help you schedule your day.
-describ how this is different from other apps (short version)
+
+describe how this is different from other apps (short version)
 	web-bsed so can run on any device
 	available on desktop so can quickly input w/ keyboard and mouse instead of clumsy touch interface on mobile device
 update short desc to idnex meta tag
@@ -9,12 +10,11 @@ update short desc to idnex meta tag
 
 ## What's Time Blocking?
 
-[Time blocking](http://calnewport.com/blog/2013/12/21/deep-habits-the-importance-of-planning-every-minute-of-your-work-day/) is a method of planning a schedule for your day, so that you can be *intentional* about focusing on the things that you value the most, rather than just doing whatever feels urgent.
-and also intentional about *how much* time you spend on each task, relative to its value 
+[Time blocking](http://calnewport.com/blog/2013/12/21/deep-habits-the-importance-of-planning-every-minute-of-your-work-day/) is a method of planning a schedule for your day, so that you can be *intentional* about focusing on the things that you value the most, rather than just doing whatever feels urgent. It also helps you be intentional about *how much* time you spend on each task, relative to its value. 
 
 Because [how you spend your day is how you spend your life](https://www.goodreads.com/quotes/530337-how-we-spend-our-days-is-of-course-how-we).
 
-it complements systems like [Getting Things Done](https://www.youtube.com/watch?v=NnnaJkKdwjU), but meets a different need, and can be used independently from them 
+It complements systems like [Getting Things Done](https://www.youtube.com/watch?v=NnnaJkKdwjU), but meets a different need, and can be used independently from them. 
 
 
 ## Features
@@ -35,6 +35,12 @@ automatically show past blocks as complete and highlight current block
 
 also fun way to play around w/ modern stuff like web componentes, local storage, progressive web app, offline support, manifest
 
+
+Example workflow:
+
+1. Create a template for what a typical Monday looks like by creating time blocks for 
+1. On Monday morning, load that template into the day's schedule, then adjust it for any ways that this Monday varies from a typical one. 
+1. 
 
 
 ## Screenshots

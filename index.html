@@ -32,6 +32,10 @@
 	add labels to form inputs. how to do proper a11y when don't want extra label for minute and am/pm? screen-reader-text?
 	support "00" in minutes
 
+	is it possible to tell browser to not display the `type=number` up/down controls? just clutters it up.
+		maybe just have a single input field for hour/minute/period and use a js library to parse that into a timestamp?
+		probably better ux
+
 	-->
 
 	<noscript class="javascript-required">
@@ -39,176 +43,197 @@
 	</noscript>
 
 	<main class="site-content">
-		<table class="time-blocks">
-			<thead>
-				<tr>
-					<th>Start time</th>
-					<th>End time</th>
-					<th>Task</th>
-				</tr>
-			</thead>
+		<section class="time-block-management">
+			<h2>Time Blocks</h2>
 
-			<tbody class="time-block-rows">
-				<tr>
-					<td colspan="3">Loading...</td>
-				</tr>
+			<table class="time-blocks">
+				<thead>
+					<tr>
+						<th>Start time</th>
+						<th>End time</th>
+						<th>Task</th>
+					</tr>
+				</thead>
 
-				<tr>
-					<td class="time-window">
-						<input type="number" name="start_hour" maxlength="2" min="0" max="12" value="7" />
-						:
-						<input type="number" name="start_minute" maxlength="2" min="0" max="12" value="00" />
+				<tbody class="time-block-rows">
+					<tr>
+						<td colspan="3">Loading...</td>
+					</tr>
 
-						<select name="start_period">
-							<option value="am">am</option>
-							<option value="pm" selected>pm</option>
-						</select>
-					</td>
+					<tr>
+						<td class="time-window">
+							<input type="number" name="start_hour" maxlength="2" min="0" max="12" value="7" />
+							:
+							<input type="number" name="start_minute" maxlength="2" min="0" max="12" value="00" />
 
-					<td class="time-window">
-						<input type="number" name="end_hour" maxlength="2" min="0" max="12" value="8" />
-						:
-						<input type="number" name="end_minute" maxlength="2" min="0" max="12" value="30" />
+							<select name="start_period">
+								<option value="am">am</option>
+								<option value="pm" selected>pm</option>
+							</select>
+						</td>
 
-						<select name="start_period">
-							<option value="am">am</option>
-							<option value="pm" selected>pm</option>
-						</select>
-					</td>
+						<td class="time-window">
+							<input type="number" name="end_hour" maxlength="2" min="0" max="12" value="8" />
+							:
+							<input type="number" name="end_minute" maxlength="2" min="0" max="12" value="30" />
 
-					<td class="task-name-container">
-						<input type="text" name="task_name" class="task-name" value="Foo bar meeting" />
-					</td>
-				</tr>
+							<select name="start_period">
+								<option value="am">am</option>
+								<option value="pm" selected>pm</option>
+							</select>
+						</td>
 
-				<!--
-				<time-block-row>
-					<span slot="?">x</span>
-				</time-block-row>
-				-->
-			</tbody>
+						<td class="task-name-container">
+							<input type="text" name="task_name" class="task-name" value="Foo bar meeting" />
+						</td>
+					</tr>
 
-			<template id="time-block-row">
-				<tr>
-					<td class="time-window">
-						<input type="number" name="start_hour" maxlength="2" min="0" max="12" value="7" />
-						:
-						<input type="number" name="start_minute" maxlength="2" min="0" max="12" value="00" />
+					<!--
+					<time-block-row>
+						<span slot="?">x</span>
+					</time-block-row>
+					-->
+				</tbody>
 
-						<select name="start_period">
-							<option value="am">am</option>
-							<option value="pm" selected>pm</option>
-						</select>
-					</td>
+				<template id="time-block-row">
+					<tr>
+						<td class="time-window">
+							<input type="number" name="start_hour" maxlength="2" min="0" max="12" value="7" />
+							:
+							<input type="number" name="start_minute" maxlength="2" min="0" max="12" value="00" />
 
-					<td class="time-window">
-						<input type="number" name="end_hour" maxlength="2" min="0" max="12" value="8" />
-						:
-						<input type="number" name="end_minute" maxlength="2" min="0" max="12" value="30" />
+							<select name="start_period">
+								<option value="am">am</option>
+								<option value="pm" selected>pm</option>
+							</select>
+						</td>
 
-						<select name="start_period">
-							<option value="am">am</option>
-							<option value="pm" selected>pm</option>
-						</select>
-					</td>
+						<td class="time-window">
+							<input type="number" name="end_hour" maxlength="2" min="0" max="12" value="8" />
+							:
+							<input type="number" name="end_minute" maxlength="2" min="0" max="12" value="30" />
 
-					<td class="task-name-container">
-						<input type="text" name="task_name" class="task-name" value="Foo bar meeting" />
-					</td>
-				</tr>
+							<select name="start_period">
+								<option value="am">am</option>
+								<option value="pm" selected>pm</option>
+							</select>
+						</td>
+
+						<td class="task-name-container">
+							<input type="text" name="task_name" class="task-name" value="Foo bar meeting" />
+						</td>
+					</tr>
+				</template>
+			</table>
+
+
+
+			<template id="my-paragraph">
+				<style>
+					p {
+						color: white;
+						background-color: #666;
+						padding: 5px;
+					}
+				</style>
+
+				<p>before stuff</p>
+				<p>
+					<slot name="my-text">My default text</slot>
+				</p>
+				<p>after stuff!</p>
 			</template>
-		</table>
 
+			<!--
+			<my-paragraph>
+				<div slot="my-text">i don't get it</div>
+			</my-paragraph>
 
+			<my-paragraph>
+				<span slot="my-text">Let's have some different text!</span>
+			</my-paragraph>
 
-		<template id="my-paragraph">
-			<style>
-				p {
-					color: white;
-					background-color: #666;
-					padding: 5px;
-				}
-			</style>
-
-			<p>before stuff</p>
-			<p>
-				<slot name="my-text">My default text</slot>
-			</p>
-			<p>after stuff!</p>
-		</template>
-
-		<!--
-		<my-paragraph>
-			<div slot="my-text">i don't get it</div>
-		</my-paragraph>
-
-		<my-paragraph>
-			<span slot="my-text">Let's have some different text!</span>
-		</my-paragraph>
-
-		<my-paragraph>
-			<ul slot="my-text">
-				<li>Let's have some different text!</li>
-				<li>In a list!</li>
-			</ul>
-		</my-paragraph>
--->
+			<my-paragraph>
+				<ul slot="my-text">
+					<li>Let's have some different text!</li>
+					<li>In a list!</li>
+				</ul>
+			</my-paragraph>
+	-->
 
 
 
 
-		<template id="my-simple-paragraph">
-			<p>
-				Hi, my name is <slot name="foo">bar</slot>
-			</p>
-		</template>
+			<template id="my-simple-paragraph">
+				<p>
+					Hi, my name is <slot name="foo">bar</slot>
+				</p>
+			</template>
 
-		<!--
-		<my-simple-paragraph>
-			<span slot="foo">slim shady</span>
-		</my-simple-paragraph>
--->
+			<!--
+			<my-simple-paragraph>
+				<span slot="foo">slim shady</span>
+			</my-simple-paragraph>
+	-->
 
 
 
 
 
 
-		<template id="tmplt">
-			<h2></h2>
-			<p></p>
-			<hr>
-		</template>
+			<template id="tmplt">
+				<h2></h2>
+				<p></p>
+				<hr>
+			</template>
 
-		<script>
-			var arr = [
-				{ name: 'Susan', country: 'USA', age: 27 },
-				{ name: 'John', country: 'Canada', age: 34 },
-				{ name: 'Klaus', country: 'Germany', age: 23 },
-				{ name: 'Peter', country: 'Greece', age: 29 }
-			];
+			<script>
+				var arr = [
+					{ name: 'Susan', country: 'USA', age: 27 },
+					{ name: 'John', country: 'Canada', age: 34 },
+					{ name: 'Klaus', country: 'Germany', age: 23 },
+					{ name: 'Peter', country: 'Greece', age: 29 }
+				];
 
-			var template = document.querySelector( '#tmplt' );
+				var template = document.querySelector( '#tmplt' );
 
-			//for ( var i = 0; i < arr.length; i ++ ) {
-			//	var user = arr[ i ];
-			//	var clone = template.content.cloneNode( true );
-			//	var h2 = clone.querySelectorAll( 'h2' );
-			//	h2[ 0 ].className = 'username';
-			//	h2[ 0 ].innerHTML = user.name;
-			//	var p = clone.querySelectorAll( 'p' );
-			//	p[ 0 ].innerHTML = 'Country: ' + user.country + '<br>Age: ' + user.age;
-			//	template.parentNode.appendChild( clone );
-			//}
-		</script>
+				//for ( var i = 0; i < arr.length; i ++ ) {
+				//	var user = arr[ i ];
+				//	var clone = template.content.cloneNode( true );
+				//	var h2 = clone.querySelectorAll( 'h2' );
+				//	h2[ 0 ].className = 'username';
+				//	h2[ 0 ].innerHTML = user.name;
+				//	var p = clone.querySelectorAll( 'p' );
+				//	p[ 0 ].innerHTML = 'Country: ' + user.country + '<br>Age: ' + user.age;
+				//	template.parentNode.appendChild( clone );
+				//}
+			</script>
 
 
 
-		<div class="day-controls">
-			<button>Add new time block</button>
-			<button>Save Current Day As Template</button>
-			<button>Clear all blocks on this day</button>
-		</div>
+			<div class="day-controls">
+				<button>Add new time block</button>
+				<button>Save Current Day As Template</button>
+				<button>Clear all blocks on this day</button>
+			</div>
+		</section>
+
+		<section class="day-stats">
+			<h2>Current Day Stats</h2>
+
+			<blockquote class="motivational-quote">
+				<p>How we spend our days is, of course, how we spend our lives.</p>
+
+				(<cite>
+					<a href="https://www.goodreads.com/quotes/530337-how-we-spend-our-days-is-of-course-how-we">
+						&raquo;&raquo;
+					</a>
+				</cite>)
+			</blockquote>
+
+			<img src="https://www.jqueryscript.net/images/Nice-Configuarable-Pie-Donut-Chart-with-jQuery-D3-js-d3pie.jpg" />
+			<!-- tmp placeholder -->
+		</section>
 	</main>
 
 	<nav class="site-controls">
@@ -217,39 +242,48 @@
 			wait, what? i don't remember what i meant when i wrote this
 			still want to use calendar view, just need to remember how to explain it
 		-->
-		<h2>Calendar</h2>
-		<img src="https://www.jqueryscript.net/images/Simple-jQuery-Calendar-Date-Picker-Plugin-DCalendar.jpg">
-		<!-- this is temp placeholder -->
-		<!-- add question mark icon. when hover over it, explain that ? -->
+		<section class="calendar">
+			<h2>Calendar</h2>
+			<img src="https://www.jqueryscript.net/images/Simple-jQuery-Calendar-Date-Picker-Plugin-DCalendar.jpg">
+			<!-- this is temp placeholder -->
+			<!-- add question mark icon. when hover over it, explain that ? -->
 
-		<div class="calendar">
-			<!-- look for library to do this. clicking on day loads the saved blocks for that day in `.time-block-rows` -->
-		</div>
+			<div>
+				<!-- look for library to do this. clicking on day loads the saved blocks for that day in `.time-block-rows` -->
+			</div>
+		</section>
 
-		<h2>Templates</h2>
-		<!-- add question mark icon. when hover over it, explain that to create a new template, setup the blocks for a day, then click save button -->
 
-		<ul class="existing-templates">
-			<!-- style as links, but without underline decoration? -->
-			<li>
-				<button data-template-id="1">Monday</button>
-			</li>
-			<li>
-				<button data-template-id="1">Tuesday/Thursday</button>
-			</li>
-			<li>
-				<button data-template-id="1">Wednesday/Friday</button>
-			</li>
-			<li>
-				<button data-template-id="1">Saturday</button>
-			</li>
-			<li>
-				<button data-template-id="1">Sunday</button>
-			</li>
-		</ul>
+		<section class="existing-templates">
+			<h2>Templates</h2>
+			<!-- add question mark icon. when hover over it, explain that to create a new template, setup the blocks for a day, then click save button -->
 
-		<button>Backup Data</button>
+			<ul class="existing-templates">
+				<!-- style as links, but without underline decoration? -->
+				<li>
+					<button data-template-id="1">Monday</button>
+				</li>
+				<li>
+					<button data-template-id="1">Tuesday/Thursday</button>
+				</li>
+				<li>
+					<button data-template-id="1">Wednesday/Friday</button>
+				</li>
+				<li>
+					<button data-template-id="1">Saturday</button>
+				</li>
+				<li>
+					<button data-template-id="1">Sunday</button>
+				</li>
+			</ul>
+		</section>
+
+		<section class="miscellaneous-controls">
+			<button>Backup Data</button>
+		</section>
 	</nav>
+
+
 
 	<footer class="site-footer">
 		footer
