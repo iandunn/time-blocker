@@ -18,6 +18,7 @@ test print stylesheet, but don't spend much time fixing problems 'cause it's not
 Todo blog about when v1 done
 also post note on https://www.reddit.com/r/productivity/comments/9lqmh2/looking_for_timeblocking_app_that_notifies_at/
 
+super simple backup. whatever's easiest, probably just download a .json file with the data
 
 
 
@@ -35,6 +36,7 @@ Electron wrapper so can have dedicate window on desktop rather than getting mixe
 	push notifications through growl
 
 offline support
+	not really useful for me, but will be a good opportunity to learn how to do it
 
 optional store on Drive, Dropbox, etc, or at least backup there if
 	probably don't want to sync multiple devices though b/c of merge conflicts, so make the db keyed to the device it was created on

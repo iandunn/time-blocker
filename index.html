@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<header>
+	<header class="site-header">
 		<h1>Time Blocker</h1>
 	</header>
 
@@ -34,7 +34,7 @@
 
 	-->
 
-	<main>
+	<main class="site-content">
 		<table class="time-blocks">
 			<thead>
 				<tr>
@@ -105,19 +105,51 @@
 		</table>
 
 		<button>Add new time block</button>
+		<button>Save Current Day As Template</button>
+		<button>Clear all blocks on this day</button>
 	</main>
 
-	<aside>
-		Time blocker app setup as calendar view so can plan tomorrow without losing
-		aside is probably wrong, should be section or something? maybe even `nav` in this context?
+	<nav class="site-controls">
+		<!--
+		setup as calendar view so can plan monday on sunday without modifying weekly routine
+			wait, what? i don't remember what i meant when i wrote this
+			still want to use calendar view, just need to remember how to explain it
+		-->
+		<h2>Calendar</h2>
+		<!-- add question mark icon. when hover over it, explain that ? -->
 
-		<button>Save Template</button>	(saves the current day as a template)
-		<button>Load Template</button>	(prob change this to be a button next to each existing template)
+		<div class="calendar">
+			<!-- look for library to do this. clicking on day loads the saved blocks for that day in `.time-block-rows` -->
+		</div>
 
-		list templates - monday, tuesday/thursday, wednesday, saturday, sunday
-	</aside>
+		<h2>Templates</h2>
+		<!-- add question mark icon. when hover over it, explain that to create a new template, setup the blocks for a day, then click save button -->
 
-	<footer>footer</footer>
+		<ul>
+			<!-- style as links, but without underline decoration? -->
+			<li>
+				<button data-template-id="1">Monday</button>
+			</li>
+			<li>
+				<button data-template-id="1">Tuesday/Thursday</button>
+			</li>
+			<li>
+				<button data-template-id="1">Wednesday/Friday</button>
+			</li>
+			<li>
+				<button data-template-id="1">Saturday</button>
+			</li>
+			<li>
+				<button data-template-id="1">Sunday</button>
+			</li>
+		</ul>
+
+		<button>Backup</button>
+	</nav>
+
+	<footer class="site-footer">
+		footer
+	</footer>
 
 	<script src="js/vendor/modernizr-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

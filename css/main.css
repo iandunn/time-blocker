@@ -12,19 +12,30 @@ Also css to make current time block highlight Ed
 style so don't feel hard borders between hour and minute, maybe no border at all, but diff bg color
 */
 
-html {
-	/*box-sizing: border-box;*/
+* {
+	box-sizing: border-box;
 }
 
 body {
-	/*box-sizing: border-box;*/
-	box-sizing: content-box;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		"site-header"
+		"site-content"
+		"site-controls"
+		"site-footer"
+	;
+	grid-template-rows: auto 1fr 1fr auto;
+
 	width: 100%;
 	max-width: 900px;
-	margin: 0 20px;
+	min-height: 100vh;
+	margin: 0 auto;
 }
 
-header, footer {
+.site-header, .site-footer {
+	width: 100%;	/* this shouldn't be necessary, should it? */
 	margin: 0 auto;
 	padding: 10px 20px 20px 20px;
 	background-color: #0d3349;
@@ -32,11 +43,16 @@ header, footer {
 	text-align: center;
 }
 
-header h1 {
-	margin: .25em;
+.site-header {
+	grid-area: site-header;
 }
 
-main {
+	.site-header h1 {
+		margin: .25em;
+	}
+
+.site-content {
+	grid-area: site-content;
 	margin: 40px 0;
 	padding: 0;
 }
@@ -50,7 +66,6 @@ main {
 
 			.time-window {
 				width: auto;
-				min-width: 175px;
 			}
 
 				.time-block-rows td {
@@ -67,9 +82,16 @@ main {
 
 				.time-block-rows input.task-name {
 					width: 100%;
-					min-width: 120px;
 				}
 
+.site-controls {
+	grid-area: site-controls;
+}
+
+/* See `.site-header` for some shared styles. */
+.site-footer {
+	grid-area: site-footer;
+}
 
 /*
  * Tablet
@@ -82,5 +104,22 @@ main {
  * Desktop
  */
 @media only screen and ( min-width: 45em ) {
-	/* todo */
+	body {
+		grid-template-columns: 200px 1fr;
+		grid-template-areas:
+			"site-header   site-header"
+			"site-controls site-content"
+			"site-footer   site-footer"
+		;
+		grid-template-rows: auto 1fr auto;
+	}
+
+	.time-window {
+		min-width: 175px;
+	}
+
+		.time-block-rows input.task-name {
+			min-width: 120px;
+		}
+
 }
