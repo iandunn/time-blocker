@@ -16,22 +16,26 @@ style so don't feel hard borders between hour and minute, maybe no border at all
 	box-sizing: border-box;
 }
 
+img {
+	max-width: 100%;
+}
+
 body {
 	display: grid;
-	grid-gap: 20px;
+	grid-gap: 10px 20px;
 	grid-template-columns: 1fr;
 	grid-template-areas:
 		"site-header"
+		"javascript-required"
 		"site-content"
 		"site-controls"
 		"site-footer"
 	;
-	grid-template-rows: auto 1fr 1fr auto;
+	grid-template-rows: auto auto 1fr 1fr auto;
 
 	width: 100%;
 	max-width: 900px;
-	min-height: 100vh;
-	margin: 0 auto;
+	min-height: 100vh; /* Assists with pinning the footer to the bottom of the document */
 }
 
 .site-header, .site-footer {
@@ -51,10 +55,37 @@ body {
 		margin: .25em;
 	}
 
+.javascript-required {
+	grid-area: javascript-required;
+	color: darkred;
+	margin: 0 2em;
+	padding: 1em;
+	border: 5px solid darkred;
+	text-align: center;
+}
+
+	html.js .javascript-required {
+		display: none;
+		/* this doesn't get rid of the grid-gap. probably need to remove it from the grid-template-areas instead :|
+		or maybe just set grid-gap to 0 and rely on margin on individual elements? or maybe reducing it from 20px to 10px was good enough?
+		*/
+	}
+
+
+html.no-js .site-content,
+html.no-js .site-controls {
+	display: none;
+}
+
+
+.site-content,
+.site-controls {
+	padding: 0 20px;
+}
+
 .site-content {
 	grid-area: site-content;
-	margin: 40px 0;
-	padding: 0;
+
 }
 
 	.time-blocks {
@@ -84,9 +115,23 @@ body {
 					width: 100%;
 				}
 
+	.day-controls {
+		margin-top: 20px;
+	}
+
 .site-controls {
 	grid-area: site-controls;
 }
+
+	.site-controls h2:first-child {
+		margin-top: 0;
+	}
+
+	.existing-templates {
+		padding-left: 0;
+		list-style-type: none;
+	}
+
 
 /* See `.site-header` for some shared styles. */
 .site-footer {
@@ -97,7 +142,23 @@ body {
  * Tablet
  */
 @media only screen and ( min-width: 35em ) {
-	/* todo */
+	html {
+		padding: 0 20px;
+	}
+
+	body {
+		margin: 0 auto;
+		border-right: 1px solid #0d3349;
+		border-left: 1px solid #0d3349;
+	}
+
+	.site-controls {
+		padding-left: 10px;
+	}
+
+	.site-content {
+		padding-right: 10px;
+	}
 }
 
 /*
@@ -107,11 +168,13 @@ body {
 	body {
 		grid-template-columns: 200px 1fr;
 		grid-template-areas:
-			"site-header   site-header"
-			"site-controls site-content"
-			"site-footer   site-footer"
+			"site-header         site-header"
+			"javascript-required javascript-required"
+			"site-controls       site-content"
+			"site-footer         site-footer"
 		;
-		grid-template-rows: auto 1fr auto;
+		grid-template-rows: auto auto 1fr auto;
+
 	}
 
 	.time-window {

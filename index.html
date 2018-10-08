@@ -34,6 +34,10 @@
 
 	-->
 
+	<noscript class="javascript-required">
+		This application requires JavaScript. Please enable it in your browser settings.
+	</noscript>
+
 	<main class="site-content">
 		<table class="time-blocks">
 			<thead>
@@ -104,9 +108,12 @@
 			</tbody>
 		</table>
 
-		<button>Add new time block</button>
-		<button>Save Current Day As Template</button>
-		<button>Clear all blocks on this day</button>
+
+		<div class="day-controls">
+			<button>Add new time block</button>
+			<button>Save Current Day As Template</button>
+			<button>Clear all blocks on this day</button>
+		</div>
 	</main>
 
 	<nav class="site-controls">
@@ -116,6 +123,8 @@
 			still want to use calendar view, just need to remember how to explain it
 		-->
 		<h2>Calendar</h2>
+		<img src="https://www.jqueryscript.net/images/Simple-jQuery-Calendar-Date-Picker-Plugin-DCalendar.jpg">
+		<!-- this is temp placeholder -->
 		<!-- add question mark icon. when hover over it, explain that ? -->
 
 		<div class="calendar">
@@ -125,7 +134,7 @@
 		<h2>Templates</h2>
 		<!-- add question mark icon. when hover over it, explain that to create a new template, setup the blocks for a day, then click save button -->
 
-		<ul>
+		<ul class="existing-templates">
 			<!-- style as links, but without underline decoration? -->
 			<li>
 				<button data-template-id="1">Monday</button>
@@ -144,7 +153,7 @@
 			</li>
 		</ul>
 
-		<button>Backup</button>
+		<button>Backup Data</button>
 	</nav>
 
 	<footer class="site-footer">
