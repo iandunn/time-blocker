@@ -1,21 +1,96 @@
 import React, { Component } from 'react';
+import ReactTable           from 'react-table';
+import PropTypes            from 'prop-types';
 
 import './site-content.css';
+import 'react-table/react-table.css'
+	// maybe don't need this since want to blend in with site styles + keep page size small?
+
 
 class SiteContent extends Component {
-	render() {
+	static propTypes = {
+		timeBlocks: PropTypes.object
+	};
+
+	static defaultProps = {
+		timeBlocks: {}
+	};
+
+	render( props ) {
 
 		// modularize this into smaller components
 		// need to hook up input fields on onChange handlers so they update after input
 			// then remove readOnly values
 			// isn't there a way to do that automatically instead?
 
+
+		// look at that react table thing you built for wcpt, to see if any best practices want to use here
+
+		// refresh your memory on the lifecycle and when you might want to hook into it
+
+		const timeBlockColumns = [
+			// review https://www.npmjs.com/package/react-table#columns for relevant info
+
+			{
+				Header   : 'Start Time',
+				accessor : 'startTime' // String-based value accessors!
+			},
+			{
+				Header   : 'End Time',
+				accessor : 'endTime',
+				//Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+			},
+			{
+				Header   : 'Task',
+				accessor : 'taskId'
+				//id: 'friendName', // Required because our accessor is not a string
+				//accessor: d => d.friend.name // Custom value accessors!
+			},
+			//{
+			//	Header: props => <span>Friend Age</span>, // Custom header components!
+			//	accessor: 'friend.age'
+			//}
+
+			// "NOTE If your data has a field/key with a dot (.) you will need to supply a custom accessor." -- https://www.npmjs.com/package/react-table#accessors
+		];
+
+		//const data = [
+		//	{
+		//		name   : 'Tanner Linsley',
+		//		age    : 26,
+		//		friend : {
+		//			name : 'Jason Maurer',
+		//			age  : 23,
+		//		}
+		//	}
+		//];
+
 		return (
 			<main className="site-content">
 				<section className="time-block-management">
 					<h2>Time Blocks</h2>
 
-					{/* replace this with npm module for table sorting */}
+					<ReactTable
+						data            = { this.props.timeBlocks['2018-10-10'] }
+						columns         = { timeBlockColumns }
+						showPagination  = { false }
+						defaultPageSize = { this.props.timeBlocks['2018-10-10'].length } // better way of saying "all" ?
+						filterable      = { true }  // only need for task column? maybe not needed at all
+
+						// shorting icons are hidden, why?
+
+						// default sort column = start tiem
+
+						// Can use `resolveData` if need to massage data before it's displayed -- https://www.npmjs.com/package/react-table#data
+						// see what other props wanna pass -- https://www.npmjs.com/package/react-table#props
+
+						// style the table, but probably not with extra package to install, since it should blend in to site's styles
+							// make height adjust to # of rows automatically - fixed by setting defaultPageSize dynamically, but that may not be final option
+
+						// hook onUpdate callbacks to the input fields to update the data on input
+					/>
+
+					{/* replace this with npm module for table sorting
 					<table className="time-blocks">
 						<thead>
 							<tr>
@@ -62,9 +137,10 @@ class SiteContent extends Component {
 							<time-block-row>
 								<span slot="?">x</span>
 							</time-block-row>
-							*/}
+							* /}
 						</tbody>
 					</table>
+					*/}
 
 					<div className="day-controls">
 						<button>Add new time block</button>
@@ -87,7 +163,10 @@ class SiteContent extends Component {
 					</blockquote>
 
 					<img src="https://www.jqueryscript.net/images/Nice-Configuarable-Pie-Donut-Chart-with-jQuery-D3-js-d3pie.jpg" alt="" />
-					{/* replace this with npm module for data visualization. create a pie chart w/ fake data just as placeholder, then come back later to add real data */}
+					{/* replace this with npm module for data visualization. create a pie chart w/ fake data just as placeholder, then come back later to add real data
+					 https://www.npmjs.com/package/react-minimal-pie-chart won't work b/c it don't support text labels for the pie pieces (wtf?)
+					 need to look at the options again and pick a new one, but keep it lightweight
+					 */}
 				</section>
 			</main>
 		);

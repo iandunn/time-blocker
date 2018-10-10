@@ -68,7 +68,8 @@ Open http://localhost:3000
 ## Credits
 
 props to timetune for being a pretty good alternative and providing inspiration
-also props to dependencies: html5 bp, momentjs, etc
+create-react-app
+also props to dependencies: html5 bp, npm packages, etc
 https://feathericons.com/
 
 

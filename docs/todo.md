@@ -11,6 +11,12 @@ look into PWA features like offline and push notifications
 
 
 autocomplete task name based on existing ones
+	how does that work w/ categories though? maybe search on the task name, but postfix the category in the results list?
+		e.g., search for "walk" returns:
+			`Walking (Breaks)` or `Breaks > Walking`
+			`Create menu walker (Dev)` or `Dev > Create menu walker`
+			etc 
+	
 probably gonna wait an npm module for the calendar, and maybe moment.js too
 use localstorage probably, but research options first
 	Local storage limit? Need to delete tasks when getting close? Warn to backup first
@@ -23,6 +29,8 @@ sync back with time-blocker folder and commit to gh
 all the stuff in comments in other files
 
 Store db version in localstorsge, when back compatible broken refuse to overwrite db
+
+need way to delete tempaltes
 
 push notifications through browser
 	just hardcode as a notif at the start of event for now
@@ -51,6 +59,8 @@ when you setup your templates, add everything you might possilby want to do that
 
 ## High Priority
 
+Adjust times of other tasks automatically after changing an earlier task? To avoid having to shift everything manually
+
 ability to select multiple tasks, and shift them all backword/forward by an arbitrary time amount
 
 colors and icons for tasks like timetune has. find some open source icon library to use. prefably npm module if already using that for other dependencies like moment.js
@@ -58,10 +68,17 @@ colors and icons for tasks like timetune has. find some open source icon library
 
 stats on time
 	similar to timetune, see what your day/week looks like. if i'm spending 3 hours or 25% of work day on slack/p2, that's bad
-	combine w/ tags/categories so can look at just work day?
+	combine w/ categories so can look at just work day?
 
 Electron wrapper so can have dedicate window on desktop rather than getting mixed in with all the regular browser tabs
 	push notifications through growl
+
+i still want to have time block alarms on mobile sometimes, though. how to handle that?
+	maybe also build a mobile version using electon
+		does it already do that automatically when you build desktop?
+	don't want alarms going off on both simultaneously, though. only want alarms on mobile if desktop is idle/sleeping
+
+could also use timetune for personal(phone), and timeblocker for work(desktop)
 
 
 show warning when blocks overlap
@@ -94,8 +111,12 @@ automatically show past blocks as complete and highlight current block
 maybe add a '5 minutes left, wrap it up...' notification before next event starts
 	if event is less than 20 minutes, though, maybe make it a % of the task time, so you'd get the notif 1-3 minutes before 
 
-tag/categorize tasks?
-	this would let me view stats based on tag, so i can view just my work blocks or just my personal blocks, for example
+categorize tasks
+	this would let me view stats based on cat, so i can view just my work blocks or just my personal blocks, for example
+	
+allow sub categories, but that doesn't have to be a blocking for adding top-level cats
+
+Notes for categories, but don't clutter the main content area with them, have a separate place to see them, or a toggle or something
 
 automatically pull events from calendar into the day
 	allow blocks to overlap each other, but warn user so they can manually correct it
@@ -111,6 +132,8 @@ unit tests, but only worth the time as a learning opportunity
 
 
 ## Low Priority
+
+ReacTable feels like overkill for my needs, maybe look to replace with something leaner
 
 make think of a better name, but keep it descriptive instead of "clever"
 

@@ -23,7 +23,10 @@ class SiteHeader extends Component {
 		return (
 			<header className="site-header">
 				{/* logo.png lives in the public folder because it's also used for the favicon */}
+				{/*
+				maybe don't need this at all. if keep it, style is so it's unobtrusive and doesn't make the header taller
 				<img src={process.env.PUBLIC_URL + '/logo.png'} className="App-logo" alt="logo" />
+				*/}
 
 				<h1>Time Blocker</h1>
 			</header>
