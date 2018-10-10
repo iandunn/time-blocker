@@ -1,0 +1,30 @@
+/*
+ * Site Controls
+ */
+.site-controls {
+	grid-area: site-controls;
+}
+
+	.site-controls h2:first-child {
+		margin-top: 0;
+	}
+
+	.existing-templates {
+		margin-top: 2em;
+	}
+
+		.existing-templates ul {
+			margin-top: 2em;
+			padding-left: 0;
+			list-style-type: none;
+		}
+
+
+/*
+ * Tablets
+ */
+@media only screen and ( min-width: 35em ) {
+	.site-controls {
+		padding-left: 10px;
+	}
+}

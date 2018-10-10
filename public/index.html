@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Time Blocker</title>
+
+	<meta name="description" content="A lean JavaScript application to help you schedule your day.">
+	<meta name="viewport"    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#0d3349">
+
+	<link rel="manifest"         href="%PUBLIC_URL%/manifest.json">
+	<link rel="apple-touch-icon" href="%PUBLIC_URL%/images/feather/list.png">
+	<link rel="shortcut icon"    href="%PUBLIC_URL%/images/feather/list.png">
+
+	<style>
+		noscript {
+			display: block;
+			margin: 2em;
+			padding: 1em;
+			border: 5px solid darkred;
+			color: darkred;
+			text-align: center;
+		}
+
+		#app-root {
+			/* If JavaScript is disabled, the user shouldn't see the default error message in addition to the noscript message */
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<noscript>
+		This application requires JavaScript. Please enable it in your browser settings.
+	</noscript>
+
+	<div id="app-root">
+		<p>
+			<!-- todo want this to be blank because there's a FOUC, but needs to have something in case fatal js error prevents it from loading. what's the best practice? -->
+			If you're seeing this, then something has probably gone wrong. Make sure you're using <a href="https://browsehappy.com">a modern browser</a>, and try disabling any browser extensions you've installed.
+		</p>
+	</div>
+</body>
+</html>

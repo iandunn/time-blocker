@@ -1,0 +1,19 @@
+/*
+ * Site Header
+ */
+.site-header, .site-footer {
+	width: 100%;	/* todo this shouldn't be necessary, should it? */
+	margin: 0 auto;
+	padding: 20px 20px 20px 20px;
+	background-color: #0d3349;
+	color: whitesmoke;
+	text-align: center;
+}
+
+.site-header {
+	grid-area: site-header;
+}
+
+	.site-header h1 {
+		margin: .25em;
+	}

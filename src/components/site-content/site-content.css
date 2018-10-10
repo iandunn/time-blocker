@@ -1,0 +1,103 @@
+/*
+ * Time Block Management
+ */
+.site-content,
+.site-controls,
+.day-stats {
+	padding: 0 20px;
+}
+
+.site-content {
+	grid-area: site-content;
+}
+
+	.time-block-management h2:first-child {
+		margin-top: 0;
+	}
+
+	.time-blocks {
+		width: 100%;
+	}
+
+		.time-block-rows {
+		}
+
+			.time-window {
+				width: auto;
+			}
+
+				.time-block-rows td {
+					padding: 5px 10px;
+				}
+
+				.time-block-rows input {
+					width: 40px;
+				}
+
+			.time-name-container {
+				width: 100%;
+			}
+
+				.time-block-rows input.task-name {
+					width: 100%;
+				}
+
+	.day-controls {
+		margin-top: 20px;
+	}
+
+
+/*
+ * Day Stats
+ */
+.day-stats {
+	margin-top: 3em;
+	padding: 0;
+}
+
+	.motivational-quote {
+		display: inline-block;
+		font-style: italic;
+		margin: 1em 20px;
+		text-align: center;
+	}
+
+	.motivational-quote p {
+		display: inline;
+	}
+
+	.motivational-quote p::before {
+		content: '\201C';
+	}
+
+	.motivational-quote p::after {
+		content: '\201D';
+	}
+		.motivational-quote a {
+			text-decoration: none;
+		}
+
+
+/*
+ * Tablets
+ */
+@media only screen and ( min-width: 35em ) {
+
+	.site-content {
+		padding-right: 10px;
+	}
+}
+
+/*
+ * Desktops
+ */
+@media only screen and ( min-width: 45em ) {
+	.time-window {
+		min-width: 175px;
+	}
+
+		.time-block-rows input.task-name {
+			min-width: 120px;
+		}
+
+}

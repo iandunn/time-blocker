@@ -1,15 +1,15 @@
 {
 	"short_name"       : "Time Blocker",
 	"name"             : "Time Blocker",
-	"description"      : "A lean JavaScript application to help you schedule your day.",
-	"start_url"        : "/",
+	"description"      : "A lean JavaScript application to be intentional about how you spend your day.",
+	"start_url"        : ".",
 	"display"          : "standalone",
+	"theme_color"      : "#42f453",
 	"background_color" : "#0d3349",
-	"theme_color"      : "#0d3349",
 
 	"icons" : [
 		{
-			"src"   : "images/feather/list.png",
+			"src"   : "favicon.png",
 			"sizes" : "192x192",
 			"type"  : "image/png"
 		}

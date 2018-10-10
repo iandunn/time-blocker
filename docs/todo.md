@@ -2,6 +2,24 @@
 
 ## Minimum Viable Project
 
+go through https://reactjs.org/docs/thinking-in-react.html
+
+look into PWA features like offline and push notifications
+	maybe use framework, but probably better to not
+	https://developer.mozilla.org/en-US/docs/Web/Manifest
+	https://developers.google.com/web/fundamentals/web-app-manifest/
+
+
+autocomplete task name based on existing ones
+probably gonna wait an npm module for the calendar, and maybe moment.js too
+use localstorage probably, but research options first
+	Local storage limit? Need to delete tasks when getting close? Warn to backup first
+
+when loading template, // if current day has anything in it, warn that will proceding will override current blocks
+
+use npm `datatables` for table search/filter/sort
+sync back with time-blocker folder and commit to gh
+
 all the stuff in comments in other files
 
 Store db version in localstorsge, when back compatible broken refuse to overwrite db
@@ -12,6 +30,8 @@ push notifications through browser
 Always show pie chart on current day to keep mindful about where spending time
 
 test manifest.json
+	update theme_color to compliment background_color
+look into service worker stuff in index.js
 test print stylesheet, but don't spend much time fixing problems 'cause it's not worth it
 	this might be relevant: http://css-discuss.incutio.com/wiki/Printing_Tables
 
@@ -66,6 +86,9 @@ but that might be annoying if they're both going off
 or maybe use simperium API? don't think it's really supported anymore, but maybe
 
 
+automatically show past blocks as complete and highlight current block
+
+
 ## Medium Priority
 
 maybe add a '5 minutes left, wrap it up...' notification before next event starts
@@ -84,6 +107,7 @@ drag and drop items to re-order things
 
 customize notifications for x minutes before event like timetune
 
+unit tests, but only worth the time as a learning opportunity
 
 
 ## Low Priority

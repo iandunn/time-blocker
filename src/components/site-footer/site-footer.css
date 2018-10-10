@@ -1,0 +1,9 @@
+/*
+ * Site Footer
+ *
+ * See `.site-header` for some shared styles.
+ */
+.site-footer {
+	grid-area: site-footer;
+	margin-top: 3em;
+}
